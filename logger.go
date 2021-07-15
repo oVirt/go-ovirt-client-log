@@ -1,6 +1,6 @@
 package ovirtclientlog
 
-// Logger provides pluggable logging for this library.
+// Logger provides pluggable logging for oVirt client libraries.
 type Logger interface {
 	Debugf(format string, args ...interface{})
 	Infof(format string, args ...interface{})
