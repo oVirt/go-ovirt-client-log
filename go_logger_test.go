@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ovirt/go-ovirt-client-log"
+	"github.com/ovirt/go-ovirt-client-log/v2"
 )
 
 func TestGoLogger(t *testing.T) {
