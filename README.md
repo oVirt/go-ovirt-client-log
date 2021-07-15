@@ -5,7 +5,7 @@ This repository contains a simple unified logging interface for all oVirt Go cli
 This library is used as a dependency, so you will most likely not need to rely on it. However, if you need to fetch it you can do so using `go get`:
 
 ```bash
-go get github.com/ovirt/go-ovirt-client-log
+go get github.com/ovirt/go-ovirt-client-log/v2
 ```
 
 You can then reference this library using the `ovirtclientlog` package name.
