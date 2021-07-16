@@ -6,10 +6,17 @@ import (
 )
 
 // NewGoLogger creates a logger that writes to the Go log facility. The optional logger parameter can be
-// used to create a scoped logger, otherwise the global logger is used.
-func NewGoLogger(logger *log.Logger) Logger {
+// used to pass one scoped logger, otherwise the global logger is used. If multiple loggers are passed the
+// function will panic.
+func NewGoLogger(logger ...*log.Logger) Logger {
+	var l *log.Logger = nil
+	if len(logger) == 1 {
+		l = logger[0]
+	} else {
+		panic(fmt.Sprintf("Only one logger may be passed to NewGoLogger, %d were passed.", len(logger)))
+	}
 	return &goLogger{
-		logger: logger,
+		logger: l,
 	}
 }
 

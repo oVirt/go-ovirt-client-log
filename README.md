@@ -20,10 +20,18 @@ This library providers 3 default loggers:
 
 ### Go logging
 
-A Go logger can be created using the `NewGoLogger()` function. Optionally, a [`*log.Logger`](https://pkg.go.dev/log#Logger) instance can be passed. If it is not passed, the log is written to the globally configured log destination.
+A Go logger can be created using the `NewGoLogger()` function.
 
 ```go
-logger := ovirtclientlog.NewGoLogger(nil)
+logger := ovirtclientlog.NewGoLogger()
+```
+
+Optionally, a [`*log.Logger`](https://pkg.go.dev/log#Logger) instance can be passed. If it is not passed, the log is written to the globally configured log destination.
+
+```go
+buf := &bytes.Buffer{}
+backingLogger := log.New(buf, "", 0)
+logger := ovirtclientlog.NewGoLogger(backingLogger)
 ```
 
 ### Test logging
