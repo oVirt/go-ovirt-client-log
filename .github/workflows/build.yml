@@ -1,9 +1,14 @@
 name: Build
 on:
   push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron: '0 17 * * 2'
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   fmt:
     name: gofmt
@@ -48,7 +53,7 @@ jobs:
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.32.2
+          version: v1.45.2
           args: --timeout=5m -E asciicheck -E bodyclose -E dupl -E errorlint -E exportloopref -E funlen
   codeql:
     name: CodeQL

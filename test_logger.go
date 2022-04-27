@@ -1,6 +1,7 @@
 package ovirtclientlog
 
 import (
+	"context"
 	"testing"
 )
 
@@ -13,6 +14,10 @@ func NewTestLogger(t *testing.T) Logger {
 
 type testLogger struct {
 	t *testing.T
+}
+
+func (t *testLogger) WithContext(_ context.Context) Logger {
+	return t
 }
 
 func (t *testLogger) Debugf(format string, args ...interface{}) {
