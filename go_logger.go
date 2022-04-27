@@ -1,6 +1,7 @@
 package ovirtclientlog
 
 import (
+	"context"
 	"fmt"
 	"log"
 )
@@ -22,6 +23,10 @@ func NewGoLogger(logger ...*log.Logger) Logger {
 
 type goLogger struct {
 	logger *log.Logger
+}
+
+func (g *goLogger) WithContext(_ context.Context) Logger {
+	return g
 }
 
 func (g *goLogger) write(format string, args ...interface{}) {

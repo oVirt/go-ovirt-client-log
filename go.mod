@@ -1,3 +1,3 @@
-module github.com/ovirt/go-ovirt-client-log/v2
+module github.com/ovirt/go-ovirt-client-log/v3
 
 go 1.16

@@ -104,6 +104,8 @@ type Logger interface {
 	Infof(format string, args ...interface{})
 	Warningf(format string, args ...interface{})
 	Errorf(format string, args ...interface{})
+
+    WithContext(ctx context.Context) Logger
 }
 ```
 
@@ -128,6 +130,10 @@ func (k klogLogger) Warningf(format string, args ...interface{}) {
 
 func (k klogLogger) Errorf(format string, args ...interface{}) {
 	klog.Errorf(format, args...)
+}
+
+func (k klogLogger) WithContext(_ context.Context) Logger {
+    return k
 }
 ```
 
